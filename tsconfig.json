@@ -1,0 +1,1 @@
+{ "compilerOptions": { "lib": ["dom", "esnext"], "jsx": "preserve", "moduleResolution": "node", "resolveJsonModule": true, "strict": true, "paths": { "@/*": ["./*"] } }, "include": ["**/*.ts", "**/*.tsx"] }
