@@ -1,1 +1,10 @@
-
+{
+  "name": "alfabursatil",
+  "version": "0.1.0",
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "scripts": { "build": "next build", "dev": "next dev", "start": "next start" }
+}
