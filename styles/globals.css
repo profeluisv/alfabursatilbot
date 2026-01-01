@@ -1,41 +1,24 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
 
-@layer base {
-  :root {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --radius: 0.5rem;
-  }
+@theme {
+  --color-background: hsl(222.2 84% 4.9%);
+  --color-foreground: hsl(210 40% 98%);
+  --color-border: hsl(217.2 32.6% 17.5%);
+  --color-primary: hsl(210 40% 98%);
+  --color-card: hsl(222.2 84% 4.9%);
+}
+
+:root {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
 }
 
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  /* Fondo de rejilla de v0 */
   background-image: 
     linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
   background-size: 40px 40px;
-}
-
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 50s linear infinite;
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
 }
