@@ -46,7 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="dark">
-      <body className={`${montserrat.className} font-sans antialiased`}>
+      <body className={`${montserrat.variable} font-sans antialiased bg-background text-foreground`}>
         {children}
         <Analytics />
       {/* v0 – built-with badge */}
@@ -93,7 +93,6 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     <path d="M147 56H133V23.9531L100.953 56H133V70H96.6875C85.8144 70 77 61.1856 77 50.3125V14H91V46.1562L123.156 14H91V0H127.312C138.186 0 147 8.81439 147 19.6875V56Z" />
   </svg>
 </a>
-
 <button
   onclick="document.getElementById('v0-built-with-button-4a4701f9-08ca-415b-b1ec-79179bad53d1').style.display='none'"
   onmouseenter="this.style.opacity='1'"
@@ -118,19 +117,6 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     <path d="M18 6L6 18M6 6l12 12"/>
   </svg>
 </button>
-
-<span style="
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-">
-  v0
-</span>
 </div>` }} />
 </body>
     </html>
