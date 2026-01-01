@@ -5,7 +5,6 @@ import { SystemStatus } from "@/components/system-status"
 import { FeaturesGrid } from "@/components/features-grid"
 import { PremiumSection } from "@/components/premium-section"
 import { Footer } from "@/components/footer"
-import { StockTicker } from "@/components/StockTicker";
 
 export default function HomePage() {
   return (
