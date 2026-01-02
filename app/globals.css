@@ -4,16 +4,13 @@
   --color-telegram: #24a1de;
 }
 
-body {
-  background-color: #000000;
-  color: #ffffff;
-  /* Rejilla sutil de la imagen */
-  background-image: 
-    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
-.glow-shadow {
-  box-shadow: 0 0 50px -12px rgba(36, 161, 222, 0.3);
+/* Evitar scroll horizontal por los brillos */
+body {
+  overflow-x: hidden;
+  background: black;
 }
