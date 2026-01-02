@@ -1,35 +1,23 @@
-"use client"
-
-import { motion } from "framer-motion"
+import { Activity, ShieldCheck, Zap } from "lucide-react";
 
 export function SystemStatus() {
+  const stats = [
+    { label: "Uptime del Sistema", value: "99.98%", icon: <Zap className="w-4 h-4" /> },
+    { label: "Latencia de Datos", value: "140ms", icon: <Activity className="w-4 h-4" /> },
+    { label: "Seguridad Bancaria", value: "AES-256", icon: <ShieldCheck className="w-4 h-4" /> },
+  ];
+
   return (
-    <div className="py-8 bg-black border-b border-border/30">
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-center gap-3 text-sm font-mono">
-          <span className="text-muted-foreground">Estatus del Sistema:</span>
-          <div className="flex items-center gap-2">
-            <span className="text-foreground">Activo</span>
-            <motion.span
-              animate={{
-                opacity: [1, 0.5, 1],
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "easeInOut",
-              }}
-              className="text-[#10b981]"
-            >
-              🟢
-            </motion.span>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto -mt-12 px-6 relative z-20">
+      {stats.map((s, i) => (
+        <div key={i} className="glass-card p-4 rounded-2xl flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="text-telegram bg-telegram/10 p-2 rounded-lg">{s.icon}</div>
+            <span className="text-xs text-white/40 font-bold uppercase">{s.label}</span>
           </div>
-          <span className="text-muted-foreground">|</span>
-          <span className="text-muted-foreground">Versión:</span>
-          <span className="text-[#24a1de]">0.0.1</span>
+          <span className="font-mono text-sm text-telegram">{s.value}</span>
         </div>
-      </div>
+      ))}
     </div>
-  )
+  );
 }
