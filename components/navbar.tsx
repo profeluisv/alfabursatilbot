@@ -1,24 +1,22 @@
-import { cn } from "@/lib/utils";
-import { Shield, TrendingUp, Menu } from "lucide-react";
+import { TrendingUp } from "lucide-react";
 
 export function Navbar() {
   return (
-    <nav className="flex items-center justify-between px-8 py-4 border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-10 z-50">
-      <div className="flex items-center gap-2 group cursor-pointer">
-        <div className="w-8 h-8 bg-telegram rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform">
-          <TrendingUp className="text-white w-5 h-5" />
+    <nav className="flex items-center justify-between max-w-7xl mx-auto px-6 py-8 relative z-50">
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 bg-gradient-to-tr from-[#24a1de] to-[#1d86ba] rounded-xl flex items-center justify-center shadow-[0_0_15px_rgba(36,161,222,0.5)]">
+          <TrendingUp className="text-white w-6 h-6" strokeWidth={2.5} />
         </div>
-        <span className="font-bold text-xl tracking-tighter uppercase">Alfa Bursátil</span>
+        <span className="text-2xl font-black tracking-tighter italic">Alfa Bursátil</span>
       </div>
-      <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white/60 uppercase tracking-widest">
+      <div className="hidden md:flex items-center gap-10 text-[11px] font-bold uppercase tracking-[0.2em] text-white/50">
         <a href="#" className="hover:text-telegram transition-colors">Terminal</a>
         <a href="#" className="hover:text-telegram transition-colors">Portafolios</a>
         <a href="#" className="hover:text-telegram transition-colors">Academia</a>
-        <button className="bg-telegram text-white px-5 py-2 rounded-full font-bold hover:scale-105 active:scale-95 transition-all">
+        <button className="bg-white/5 border border-white/10 px-5 py-2 rounded-full hover:bg-white/10 transition-all">
           Acceso VIP
         </button>
       </div>
-      <Menu className="md:hidden text-white" />
     </nav>
   );
 }
