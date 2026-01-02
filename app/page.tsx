@@ -1,35 +1,24 @@
 import { StockTicker } from "@/components/StockTicker";
 import { Navbar } from "@/components/navbar";
-import { HeroSection } from "@/components/hero-section";
-import { SystemStatus } from "@/components/system-status";
-import { FeaturesGrid } from "@/components/features-grid";
+import { HeroSection } from "@/components/HeroSection";
 
-export default function LandingPage() {
+export default function Page() {
   return (
-    <main className="min-h-screen">
+    <main className="relative min-h-screen">
+      {/* Ticker Dinámico Funcional (Copia Exacta solicitada) */}
       <StockTicker />
-      <Navbar />
-      <HeroSection />
-      <SystemStatus />
-      <FeaturesGrid />
       
-      {/* Premium Section - Inline para completar la landing */}
-      <section className="py-24 px-6 bg-gradient-to-b from-transparent to-telegram/5">
-        <div className="max-w-4xl mx-auto glass-card rounded-[40px] p-12 text-center border-telegram/20">
-          <h2 className="text-4xl font-black mb-6 italic">MEMBRESÍA QUANT</h2>
-          <p className="text-white/60 mb-10 max-w-md mx-auto">
-            Únete al círculo exclusivo de inversores que operan con datos, no con emociones.
-          </p>
-          <button className="bg-white text-black px-12 py-4 rounded-full font-black hover:bg-telegram hover:text-white transition-all">
-            SOLICITAR ACCESO
-          </button>
-        </div>
-      </section>
+      <Navbar />
+      
+      <div className="relative z-10">
+        <HeroSection />
+      </div>
 
-      <footer className="py-12 border-t border-white/5 text-center">
-        <p className="text-white/20 text-xs tracking-widest uppercase">
-          © 2025 ALFA BURSÁTIL • TERMINAL DE DATOS FINANCIEROS
-        </p>
+      {/* Footer Minimalista */}
+      <footer className="mt-20 py-10 border-t border-white/5 flex flex-col items-center gap-4">
+        <div className="text-[10px] font-bold text-white/20 tracking-[0.5em] uppercase">
+          Built with Precision for BVC
+        </div>
       </footer>
     </main>
   );
