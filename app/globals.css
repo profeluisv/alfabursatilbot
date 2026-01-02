@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -9,7 +8,6 @@
   --card: #0a0a0a;
   --primary: #24a1de;
   --border: #1a1a1a;
-  --ring: #24a1de;
 }
 
 @theme inline {
@@ -18,18 +16,16 @@
   --color-card: var(--card);
   --color-primary: var(--primary);
   --color-border: var(--border);
-  --color-ring: var(--ring);
 }
 
 @layer base {
-  body { 
-    @apply bg-background text-foreground antialiased font-sans;
-    background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), 
+                      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
     background-size: 40px 40px;
   }
 }
-
-.brand-shadow { text-shadow: 0 0 40px rgba(36, 161, 222, 0.6), 0 2px 4px rgba(0, 0, 0, 0.8); }
 
 @keyframes marquee {
   0% { transform: translateX(0); }
