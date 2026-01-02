@@ -1,64 +1,49 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@theme {
+  --color-telegram: #24a1de;
+  --color-dark-bg: #000000;
+  --font-montserrat: "Montserrat", sans-serif;
+  
+  --shadow-brand: 0 0 20px rgba(36, 161, 222, 0.15);
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
 
 :root {
   --background: #000000;
   --foreground: #ffffff;
-  --card: #0a0a0a;
-  --card-foreground: #ffffff;
-  --popover: #000000;
-  --popover-foreground: #ffffff;
-  --primary: #24a1de;
-  --primary-foreground: #ffffff;
-  --secondary: #0a0a0a;
-  --secondary-foreground: #ffffff;
-  --muted: #1a1a1a;
-  --muted-foreground: #c0c0c0;
-  --accent: #24a1de;
-  --accent-foreground: #ffffff;
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: #ffffff;
-  --border: #1a1a1a;
-  --input: #0a0a0a;
-  --ring: #24a1de;
-  --chart-1: #24a1de;
-  --chart-2: #5bc0eb;
-  --chart-3: #0088cc;
-  --chart-4: #64b5f6;
-  --chart-5: #42a5f5;
-  --radius: 0.75rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-border: var(--border);
-  --color-ring: var(--ring);
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-montserrat);
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  overflow-x: hidden;
 }
 
-@layer base {
-  * { @apply border-border outline-ring/50; }
-  body { @apply bg-background text-foreground antialiased; }
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
-/* --- ESTILOS ORIGINALES DE TU LANDING --- */
-.glass-card { background: rgba(10, 10, 10, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(36, 161, 222, 0.2); }
-.glow-telegram { box-shadow: 0 0 30px rgba(36, 161, 222, 0.4); }
-.brand-shadow { text-shadow: 0 0 40px rgba(36, 161, 222, 0.6), 0 2px 4px rgba(0, 0, 0, 0.8); }
-
-/* --- ANIMACIÓN PARA LA CINTA MÓVIL --- */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(36, 161, 222, 0.4);
+  box-shadow: var(--shadow-brand);
 }
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 50s linear infinite;
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #24a1de 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
