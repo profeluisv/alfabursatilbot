@@ -1,7 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react"
-import { Montserrat } from "next/font/google"
-import { TrendingUp, Activity, ShieldCheck, Zap } from "lucide-react"
+import { TrendingUp, Activity, ShieldCheck } from "lucide-react"
 
 export default function LandingPage() {
   const [data, setData] = useState<any[]>([])
@@ -27,8 +26,8 @@ export default function LandingPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans">
-      {/* 1. CINTA DINÁMICA */}
+    <div className="min-h-screen bg-black text-white">
+      {/* CINTA DINÁMICA */}
       <div className="w-full bg-black/90 border-b border-white/10 h-10 flex items-center sticky top-0 z-[100] overflow-hidden backdrop-blur-md">
         <div className="animate-marquee">
           {[...data, ...data].map((item, i) => (
@@ -43,18 +42,18 @@ export default function LandingPage() {
         </div>
       </div>
 
-      {/* 2. NAVBAR */}
+      {/* NAVBAR */}
       <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
-        <div className="flex items-center space-x-2 text-2xl font-bold tracking-tighter">
-          <div className="w-10 h-10 bg-[#24a1de] rounded-xl flex items-center justify-center text-white shadow-[0_0_20px_rgba(36,161,222,0.5)]">AB</div>
-          <span className="text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">Alfa Bursátil</span>
+        <div className="flex items-center space-x-2 text-2xl font-bold tracking-tighter brand-shadow">
+          <div className="w-10 h-10 bg-[#24a1de] rounded-xl flex items-center justify-center text-white">AB</div>
+          <span>Alfa Bursátil</span>
         </div>
-        <button className="bg-[#24a1de] text-white px-6 py-2 rounded-full text-sm font-bold hover:scale-105 transition-transform shadow-[0_0_20px_rgba(36,161,222,0.4)]">
+        <button className="bg-[#24a1de] text-white px-6 py-2 rounded-full text-sm font-bold shadow-[0_0_20px_rgba(36,161,222,0.4)]">
           Iniciar Terminal
         </button>
       </nav>
 
-      {/* 3. HERO SECTION */}
+      {/* HERO SECTION */}
       <main className="max-w-7xl mx-auto px-6 pt-16 pb-24 text-center">
         <div className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full mb-8">
           <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">+499.3% Retorno en USD (Anual)</span>
@@ -67,45 +66,17 @@ export default function LandingPage() {
           </span>
         </h1>
         
-        <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-16">
-          Métricas precisas y análisis estratégico directamente en tu pantalla. Sincronizado con la BVC.
-        </p>
-
-        {/* TARJETAS DE ESTADÍSTICAS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-24">
-          <div className="p-10 bg-zinc-900/50 border border-white/5 rounded-3xl backdrop-blur-xl hover:border-blue-500/30 transition-all">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-16">
+          <div className="p-10 bg-zinc-900/50 border border-white/5 rounded-3xl backdrop-blur-xl">
             <div className="text-5xl font-bold text-white mb-2">+499.3%</div>
-            <div className="text-blue-400 text-sm font-bold uppercase tracking-widest">Retorno Anual en USD</div>
+            <div className="text-blue-400 text-sm font-bold uppercase">Retorno Anual en USD</div>
           </div>
-          <div className="p-10 bg-zinc-900/50 border border-white/5 rounded-3xl backdrop-blur-xl hover:border-blue-500/30 transition-all">
+          <div className="p-10 bg-zinc-900/50 border border-white/5 rounded-3xl backdrop-blur-xl">
             <div className="text-5xl font-bold text-white mb-2">+226%</div>
-            <div className="text-blue-400 text-sm font-bold uppercase tracking-widest">Sobre el Índice BVC</div>
-          </div>
-        </div>
-
-        {/* FEATURES GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left border-t border-white/5 pt-20">
-          <div className="space-y-4">
-            <Activity className="text-blue-400 w-8 h-8" />
-            <h3 className="text-xl font-bold">Métricas de Volumen</h3>
-            <p className="text-slate-500 text-sm leading-relaxed">Análisis profundo de liquidez y detección de oportunidades en tiempo real.</p>
-          </div>
-          <div className="space-y-4">
-            <TrendingUp className="text-blue-400 w-8 h-8" />
-            <h3 className="text-xl font-bold">Sharpe Ratio</h3>
-            <p className="text-slate-500 text-sm leading-relaxed">Evaluación de retorno ajustado por riesgo de cada activo venezolano.</p>
-          </div>
-          <div className="space-y-4">
-            <ShieldCheck className="text-blue-400 w-8 h-8" />
-            <h3 className="text-xl font-bold">Seguridad Total</h3>
-            <p className="text-slate-500 text-sm leading-relaxed">Datos encriptados y sincronización directa con fuentes oficiales.</p>
+            <div className="text-blue-400 text-sm font-bold uppercase">Sobre el Índice BVC</div>
           </div>
         </div>
       </main>
-
-      <footer className="py-20 text-center border-t border-white/5 opacity-50">
-        <p className="text-sm">© 2024 Alfa Bursátil. Todos los derechos reservados.</p>
-      </footer>
     </div>
   )
 }
