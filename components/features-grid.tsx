@@ -1,30 +1,96 @@
-import { PieChart, Globe, Briefcase, Zap } from "lucide-react";
+"use client"
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { BarChart3, DollarSign, Droplets, TrendingUp } from "lucide-react"
+import { motion } from "framer-motion"
+import { useInView } from "framer-motion"
+import { useRef } from "react"
 
 const features = [
-  { title: "Dashboard Real-time", desc: "Datos de la BVC con actualización de baja latencia.", icon: <Zap /> },
-  { title: "Análisis Fundamental", desc: "Métricas financieras exclusivas y proyecciones de EBITDA.", icon: <PieChart /> },
-  { title: "Portafolios Modelo", desc: "Estrategias de inversión optimizadas por algoritmos Alfa.", icon: <Briefcase /> },
-  { title: "Mercados Globales", desc: "Correlación entre el ADR y el mercado local en tiempo real.", icon: <Globe /> },
-];
+  {
+    icon: BarChart3,
+    command: "/index",
+    title: "Análisis de Sentimiento",
+    description: "Métricas de volumen y momentum para evaluar tendencias del mercado venezolano",
+  },
+  {
+    icon: TrendingUp,
+    command: "/rentabilidad",
+    title: "Cálculo de Sharpe Ratio",
+    description: "Evaluación de retorno ajustado por riesgo de cada activo en tiempo real",
+  },
+  {
+    icon: Droplets,
+    command: "/liquidez",
+    title: "Métricas de Volumen",
+    description: "Análisis de liquidez del mercado y detección de oportunidades de entrada/salida",
+  },
+  {
+    icon: DollarSign,
+    command: "/ath",
+    title: "Arbitraje de Precios",
+    description: "Identificación de activos cerca de máximos históricos con potencial de ruptura",
+  },
+]
 
 export function FeaturesGrid() {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
+
   return (
-    <section className="py-32 px-6 max-w-6xl mx-auto">
-      <div className="text-center mb-20">
-        <h2 className="text-3xl font-bold mb-4">INGENIERÍA FINANCIERA</h2>
-        <div className="w-20 h-1 bg-telegram mx-auto rounded-full" />
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {features.map((f, i) => (
-          <div key={i} className="glass-card p-8 rounded-3xl group">
-            <div className="w-12 h-12 bg-telegram/10 rounded-2xl flex items-center justify-center text-telegram mb-6 group-hover:scale-110 transition-transform">
-              {f.icon}
-            </div>
-            <h3 className="font-bold mb-3 tracking-tight">{f.title}</h3>
-            <p className="text-sm text-white/40 leading-relaxed">{f.desc}</p>
-          </div>
-        ))}
+    <section ref={ref} className="py-20 bg-secondary/50">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mb-16 text-center"
+        >
+          <h2 className="mb-4 text-4xl font-bold tracking-tight text-foreground">Monitor de Mercado</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Herramientas de análisis financiero mediante comandos simples en Telegram
+          </p>
+        </motion.div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {features.map((feature, index) => {
+            const Icon = feature.icon
+            return (
+              <motion.div
+                key={feature.command}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                  ease: "easeOut",
+                }}
+              >
+                <motion.div
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: "0 10px 30px rgba(36, 161, 222, 0.3)", // Updated to Telegram blue
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Card className="group relative overflow-hidden border-border/50 bg-card/50 backdrop-blur transition-all hover:border-primary/50 h-full">
+                    <CardHeader>
+                      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-[#24a1de]/10 text-[#24a1de] transition-colors group-hover:bg-[#24a1de] group-hover:text-primary-foreground">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <code className="text-sm font-mono text-[#24a1de] mb-2 block">{feature.command}</code>
+                      <CardTitle className="text-xl">{feature.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="leading-relaxed">{feature.description}</CardDescription>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </motion.div>
+            )
+          })}
+        </div>
       </div>
     </section>
-  );
+  )
 }
