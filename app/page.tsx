@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from "react"
-import { TrendingUp, Activity, ShieldCheck } from "lucide-react"
+import { TrendingUp, Activity, ShieldCheck, Zap } from "lucide-react"
 
 export default function LandingPage() {
   const [data, setData] = useState<any[]>([])
@@ -26,7 +26,7 @@ export default function LandingPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen">
       {/* CINTA DINÁMICA */}
       <div className="w-full bg-black/90 border-b border-white/10 h-10 flex items-center sticky top-0 z-[100] overflow-hidden backdrop-blur-md">
         <div className="animate-marquee">
@@ -48,7 +48,7 @@ export default function LandingPage() {
           <div className="w-10 h-10 bg-[#24a1de] rounded-xl flex items-center justify-center text-white">AB</div>
           <span>Alfa Bursátil</span>
         </div>
-        <button className="bg-[#24a1de] text-white px-6 py-2 rounded-full text-sm font-bold shadow-[0_0_20px_rgba(36,161,222,0.4)]">
+        <button className="bg-[#24a1de] text-white px-6 py-2 rounded-full text-sm font-bold">
           Iniciar Terminal
         </button>
       </nav>
@@ -65,15 +65,35 @@ export default function LandingPage() {
             Mercado de Valores de Venezuela
           </span>
         </h1>
-        
+
+        {/* TARJETAS DE ESTADÍSTICAS */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-16">
-          <div className="p-10 bg-zinc-900/50 border border-white/5 rounded-3xl backdrop-blur-xl">
+          <div className="p-10 bg-[#0a0a0a]/60 border border-white/5 rounded-3xl backdrop-blur-xl hover:border-blue-500/30 transition-all">
             <div className="text-5xl font-bold text-white mb-2">+499.3%</div>
-            <div className="text-blue-400 text-sm font-bold uppercase">Retorno Anual en USD</div>
+            <div className="text-blue-400 text-sm font-bold uppercase tracking-widest">Retorno Anual en USD</div>
           </div>
-          <div className="p-10 bg-zinc-900/50 border border-white/5 rounded-3xl backdrop-blur-xl">
+          <div className="p-10 bg-[#0a0a0a]/60 border border-white/5 rounded-3xl backdrop-blur-xl hover:border-blue-500/30 transition-all">
             <div className="text-5xl font-bold text-white mb-2">+226%</div>
-            <div className="text-blue-400 text-sm font-bold uppercase">Sobre el Índice BVC</div>
+            <div className="text-blue-400 text-sm font-bold uppercase tracking-widest">Sobre el Índice BVC</div>
+          </div>
+        </div>
+
+        {/* FEATURES GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left border-t border-white/5 pt-20 mt-20">
+          <div className="space-y-4">
+            <Activity className="text-blue-400 w-8 h-8" />
+            <h3 className="text-xl font-bold">Métricas de Volumen</h3>
+            <p className="text-slate-500 text-sm">Análisis de liquidez y detección de oportunidades en tiempo real.</p>
+          </div>
+          <div className="space-y-4">
+            <TrendingUp className="text-blue-400 w-8 h-8" />
+            <h3 className="text-xl font-bold">Sharpe Ratio</h3>
+            <p className="text-slate-500 text-sm">Evaluación de retorno ajustado por riesgo de cada activo.</p>
+          </div>
+          <div className="space-y-4">
+            <ShieldCheck className="text-blue-400 w-8 h-8" />
+            <h3 className="text-xl font-bold">Seguridad Total</h3>
+            <p className="text-slate-500 text-sm">Sincronización directa con fuentes oficiales de la BVC.</p>
           </div>
         </div>
       </main>
