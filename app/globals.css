@@ -1,16 +1,19 @@
-@import "tailwindcss";
+import { Navbar } from "@/components/navbar"
+import { HeroSection } from "@/components/hero-section"
+import { SystemStatus } from "@/components/system-status"
+import { FeaturesGrid } from "@/components/features-grid"
+import { PremiumSection } from "@/components/premium-section"
+import { Footer } from "@/components/footer"
 
-@theme {
-  --color-telegram: #24a1de;
-}
-
-:root {
-  --background: #000000;
-  --foreground: #ffffff;
-}
-
-/* Evitar scroll horizontal por los brillos */
-body {
-  overflow-x: hidden;
-  background: black;
+export default function HomePage() {
+  return (
+    <main className="min-h-screen bg-background">
+      <Navbar />
+      <HeroSection />
+      <SystemStatus />
+      <FeaturesGrid />
+      <PremiumSection />
+      <Footer />
+    </main>
+  )
 }
